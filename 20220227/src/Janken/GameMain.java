@@ -18,32 +18,29 @@ public class GameMain {
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);
 		// パネル表示
-		JPanel headerPanel = new JPanel();
-
-	headerPanel.setBackground(Color.BLACK);
 		Dimension headerPanelDimension = new Dimension(640, 50);
-
-	headerPanel.setPreferredSize(headerPanelDimension);
-	frame.add(headerPanel,BorderLayout.NORTH);
+		JPanel headerPanel =  setPanel(Color.BLACK, headerPanelDimension);
+		frame.add(headerPanel,BorderLayout.NORTH);
 
 		//コンテンツパネル
-		JPanel contentsPanel = new JPanel();
-		contentsPanel.setLayout(new BorderLayout());
-		contentsPanel.setBackground(Color.WHITE);
+		Dimension contentsPanelDimension = new Dimension(640, 380);
+		JPanel contentsPanel = setPanel(Color.WHITE, contentsPanelDimension);
 		frame.add(contentsPanel,BorderLayout.CENTER);
 
 		//フッターパネル
-		JPanel footerPanel = new JPanel();
-		footerPanel.setLayout(new BorderLayout());
-
-	footerPanel.setBackground(Color.BLACK);
 		Dimension footerPanelDimension = new Dimension(640, 50);
-
-	footerPanel.setPreferredSize(footerPanelDimension);
+		JPanel footerPanel = setPanel(Color.BLACK, footerPanelDimension);
+		frame.add(footerPanel,BorderLayout.SOUTH);
 
 		//ウインドウ表示
 		frame.setVisible(true);
-
+	}
+	public static JPanel setPanel(Color color, Dimension PanelDimension) {
+		JPanel panel = new JPanel();
+	panel.setPreferredSize(PanelDimension);
+		panel.setLayout(new BorderLayout());
+		panel.setBackground(color);
+		return(panel);
 	}
 
 }
